@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1912558-7fa9-46fc-9bbc-f9b81992e3db" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio2/ContadorDeObjetos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio2/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio3/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio3/Cachorro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio3/Gato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio3/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio3/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
