@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1912558-7fa9-46fc-9bbc-f9b81992e3db" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio3/Animal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio3/Cachorro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio3/Gato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio3/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel1/desafio3/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio1/ItemBiblioteca.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio1/Livro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio1/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio1/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio1/Revista.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,17 +48,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;desafios-nivel-1&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/cleo_/Documents/3. Projetos/JavaProjects/DesafioControleFluxo&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/cleo_/Documents/3. Projetos/JavaProjects/java-desafios/src/main/java/org/example/Main.java&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "desafios-nivel-2",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/cleo_/Documents/3. Projetos/JavaProjects/DesafioControleFluxo",
+    "onboarding.tips.debug.path": "C:/Users/cleo_/Documents/3. Projetos/JavaProjects/java-desafios/src/main/java/org/example/Main.java"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
