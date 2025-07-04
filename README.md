@@ -19,11 +19,11 @@ Este repositório reúne uma coleção de desafios em **Java**, organizados por 
 
 ### 🟢 Nível 1: Fundamentos
 
-| Código | Desafio                                                   | Caminho                                |
-|--------|-----------------------------------------------------------|----------------------------------------|
-| 1.1    | Gerenciamento Simples de Produtos                         | [`nivel-1/desafio-1.1`](nivel-1/desafio-1.1) |
-| 1.2    | Contador de Instâncias com `static`                       | [`nivel-1/desafio-1.2`](nivel-1/desafio-1.2) |
-| 1.3    | Hierarquia de Animais (Herança)                           | [`nivel-1/desafio-1.3`](nivel-1/desafio-1.3) |
+| Código | Desafio                                                   | Caminho                                  |
+|--------|-----------------------------------------------------------|------------------------------------------|
+| 1.1    | Gerenciamento Simples de Produtos                         | [`nivel-1/desafio-1.1`](nivel1/desafio1) |
+| 1.2    | Contador de Instâncias com `static`                       | [`nivel-1/desafio-1.2`](nivel1/desafio2) |
+| 1.3    | Hierarquia de Animais (Herança)                           | [`nivel-1/desafio-1.3`](nivel1/desafio3) |
 
 ---
 
