@@ -1,17 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>org.cleosilva</groupId>
     <artifactId>java-desafios</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <packaging>jar</packaging>
 
-    <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+<name>Java Fundamentals Challenges</name>
+<description>Desafios Java Fundamentals - Níveis 1 e 2</description>
 
+<properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.version>3.11.0</maven.compiler.version>
+    <maven.surefire.version>3.0.0</maven.surefire.version>
+</properties>
+
+<dependencies>
+    <!-- JUnit 5 para testes futuros -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>5.9.3</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- AssertJ para assertions mais legíveis -->
+    <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>3.24.2</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+
+<build>
+    <plugins>
+        <!-- Plugin do compilador Maven -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven.compiler.version}</version>
+            <configuration>
+                <source>${maven.compiler.source}</source>
+                <target>${maven.compiler.target}</target>
+                <encoding>${project.build.sourceEncoding}</encoding>
+            </configuration>
+        </plugin>
+
+        <!-- Plugin para testes -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>${maven.surefire.version}</version>
+            <configuration>
+                <skipTests>false</skipTests>
+                <testFailureIgnore>true</testFailureIgnore>
+            </configuration>
+        </plugin>
+
+        <!-- Plugin para executar aplicações -->
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.1.0</version>
+            <configuration>
+                <mainClass>org.cleosilva.nivel1.desafio1.Main</mainClass>
+            </configuration>
+        </plugin>
+
+        <!-- Plugin para análise de código -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>3.3.0</version>
+            <configuration>
+                <configLocation>checkstyle.xml</configLocation>
+                <encoding>UTF-8</encoding>
+                <consoleOutput>true</consoleOutput>
+                <failsOnError>false</failsOnError>
+                <linkXRef>false</linkXRef>
+            </configuration>
+        </plugin>
+
+        <!-- Plugin para gerar JAR executável -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>3.3.0</version>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <mainClass>org.cleosilva.nivel1.desafio1.Main</mainClass>
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+
+<!-- Perfis para execução de diferentes desafios -->
+<profiles>
+    <profile>
+        <id>nivel1-desafio1</id>
+        <properties>
+            <exec.mainClass>org.cleosilva.nivel1.desafio1.Main</exec.mainClass>
+        </properties>
+    </profile>
+
+    <profile>
+        <id>nivel1-desafio2</id>
+        <properties>
+            <exec.mainClass>org.cleosilva.nivel1.desafio2.Main</exec.mainClass>
+        </properties>
+    </profile>
+
+    <profile>
+        <id>nivel1-desafio3</id>
+        <properties>
+            <exec.mainClass>org.cleosilva.nivel1.desafio3.Main</exec.mainClass>
+        </properties>
+    </profile>
+
+    <profile>
+        <id>nivel2-desafio1</id>
+        <properties>
+            <exec.mainClass>org.cleosilva.nivel2.desafio1.Main</exec.mainClass>
+        </properties>
+    </profile>
+
+    <profile>
+        <id>nivel2-desafio2</id>
+        <properties>
+            <exec.mainClass>org.cleosilva.nivel2.desafio2.Main</exec.mainClass>
+        </properties>
+    </profile>
+</profiles>
 </project>

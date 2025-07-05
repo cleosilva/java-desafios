@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1912558-7fa9-46fc-9bbc-f9b81992e3db" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio1/ItemBiblioteca.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio1/Livro.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio1/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio1/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio1/Revista.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio2/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio2/PagamentoCartaoCredito.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio2/PagamentoPix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio2/ProcessadorDePagamento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio2/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio3/Caixa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio3/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/cleosilva/nivel2/desafio3/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Record" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -53,7 +60,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "desafios-nivel-2",
+    "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/cleo_/Documents/3. Projetos/JavaProjects/DesafioControleFluxo",
     "onboarding.tips.debug.path": "C:/Users/cleo_/Documents/3. Projetos/JavaProjects/java-desafios/src/main/java/org/example/Main.java"
