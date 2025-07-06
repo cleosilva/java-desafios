@@ -1,187 +1,43 @@
-name: Auto Pull Request
+name: Simple Auto PR
 
 on:
   push:
     branches: [ develop ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
-  # Primeiro verifica se o CI está passando
-  check-ci-status:
-    runs-on: ubuntu-latest
-    outputs:
-      should-create-pr: ${{ steps.ci-check.outputs.should-create-pr }}
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Check CI status
-        id: ci-check
-        run: |
-          # Verifica se existe algum workflow rodando ou se falhou recentemente
-          LATEST_COMMIT=$(git rev-parse HEAD)
-          echo "Latest commit: $LATEST_COMMIT"
-          
-          # Verifica se não há PR existente
-          PR_EXISTS=$(gh pr list --base main --head develop --json number --jq length)
-          echo "PR exists: $PR_EXISTS"
-          
-          if [ "$PR_EXISTS" -eq 0 ]; then
-            echo "should-create-pr=true" >> $GITHUB_OUTPUT
-          else
-            echo "should-create-pr=false" >> $GITHUB_OUTPUT
-          fi
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  # Roda uma verificação básica do Maven antes de criar o PR
-  validate-build:
-    runs-on: ubuntu-latest
-    needs: check-ci-status
-    if: needs.check-ci-status.outputs.should-create-pr == 'true'
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          java-version: 21
-          distribution: 'temurin'
-
-      - name: Cache Maven dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-
-      - name: Quick validation
-        run: |
-          echo "=== Validação rápida antes do PR ==="
-          mvn validate
-          mvn clean compile -q
-
-  # Cria o PR se tudo estiver OK
   create-pr:
     runs-on: ubuntu-latest
-    needs: [check-ci-status, validate-build]
-    if: needs.check-ci-status.outputs.should-create-pr == 'true'
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Get commit info
-        id: commit-info
-        run: |
-          COMMIT_MSG=$(git log -1 --pretty=format:"%s")
-          COMMIT_AUTHOR=$(git log -1 --pretty=format:"%an")
-          COMMIT_HASH=$(git rev-parse --short HEAD)
-          COMMIT_DATE=$(git log -1 --pretty=format:"%ci")
-          
-          echo "message=$COMMIT_MSG" >> $GITHUB_OUTPUT
-          echo "author=$COMMIT_AUTHOR" >> $GITHUB_OUTPUT
-          echo "hash=$COMMIT_HASH" >> $GITHUB_OUTPUT
-          echo "date=$COMMIT_DATE" >> $GITHUB_OUTPUT
-
-      - name: Get changes summary
-        id: changes
-        run: |
-          # Pega os últimos commits desde a última sincronização com main
-          CHANGES=$(git log main..develop --oneline --no-merges | head -10)
-          echo "changes<<EOF" >> $GITHUB_OUTPUT
-          echo "$CHANGES" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
-          
-          # Conta arquivos modificados
-          JAVA_FILES=$(git diff --name-only main..develop | grep -E '\.java$' | wc -l)
-          OTHER_FILES=$(git diff --name-only main..develop | grep -v -E '\.java$' | wc -l)
-          echo "java_files=$JAVA_FILES" >> $GITHUB_OUTPUT
-          echo "other_files=$OTHER_FILES" >> $GITHUB_OUTPUT
 
       - name: Create Pull Request
-        run: |
-          gh pr create \
-            --title "🚀 Release: Develop to Main" \
-            --body "## 📋 Release Summary
-
-          **Latest commit:** \`${{ steps.commit-info.outputs.hash }}\`  
-          **Author:** ${{ steps.commit-info.outputs.author }}  
-          **Date:** ${{ steps.commit-info.outputs.date }}  
-          **Message:** ${{ steps.commit-info.outputs.message }}
-
-          ## 📊 Changes Overview
-          - **Java files modified:** ${{ steps.changes.outputs.java_files }}
-          - **Other files modified:** ${{ steps.changes.outputs.other_files }}
-
-          ## 🔄 Recent Commits
-          \`\`\`
-          ${{ steps.changes.outputs.changes }}
-          \`\`\`
-
-          ## ✅ Pre-merge Checklist
-          - [ ] ✅ **CI Pipeline**: Will run automatically on this PR
-          - [ ] 🔍 **Code Review**: Required before merge
-          - [ ] 🧪 **Tests**: Verified by Maven CI
-          - [ ] 📚 **Documentation**: Updated if needed
-          - [ ] 🏗️ **Build**: Validated (Java 21 + Maven)
-
-          ## 🚦 CI Status
-          This PR will trigger the following CI jobs:
-          - ✅ **Build** (ubuntu-latest, Java 21)
-          - ✅ **Code Quality** (Checkstyle validation)
-          - ✅ **Execute Challenges** (Nível 1 & 2)
-          - ✅ **Artifacts Upload** (JAR files)
-
-          ## 📝 Notes
-          - This PR was auto-generated from the latest develop branch changes
-          - The CI pipeline will run automatically when this PR is created
-          - Review the changes and ensure all CI checks pass before merging
-
-          ---
-          *🤖 Auto-generated on $(date) by GitHub Actions*" \
-            --base main \
-            --head develop \
-            --reviewer ${{ github.actor }} \
-            --label "auto-generated,release,java" \
-            --assignee ${{ github.actor }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Add PR comment with CI info
-        run: |
-          sleep 5  # Espera um pouco para o PR ser criado
-          PR_NUMBER=$(gh pr list --base main --head develop --json number --jq '.[0].number')
-          
-          gh pr comment $PR_NUMBER --body "## 🔄 CI Pipeline Information
-
-          O **Java CI with Maven** será executado automaticamente neste PR com:
-
-          ### 🏗️ Build Job
-          - **Java Version:** 21 (Temurin)
-          - **Maven Cache:** Habilitado
-          - **Steps:** Validate → Compile → Package → Execute Challenges
-          - **Artifacts:** JAR files + compiled classes
-
-          ### 🔍 Code Quality Job
-          - **Checkstyle:** Verificação de estilo
-          - **Structure Analysis:** Contagem de linhas e estrutura de pacotes
-
-          ### 📊 Execution Coverage
-          - **Nível 1:** Desafios 1-3
-          - **Nível 2:** Desafios 1-2
-          - **Auto-discovery:** Classes principais detectadas automaticamente
-
-          ⏳ **Status:** Aguardando execução do CI..."
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Notify success
-        run: |
-          echo "✅ Pull Request criado com sucesso!"
-          echo "🔗 O CI 'Java CI with Maven' será executado automaticamente"
-          echo "📋 Revisar o PR antes de fazer merge"
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Auto-sync: develop to main'
+          title: '🚀 Release: Develop to Main'
+          body: |
+            ## 📋 Auto-generated Release PR
+            
+            Esta PR foi criada automaticamente para sincronizar `develop` com `main`.
+            
+            ### ✅ Checklist
+            - [ ] Code review realizado
+            - [ ] CI pipeline passou
+            - [ ] Testes validados
+            - [ ] Pronto para produção
+            
+            ### 🔄 CI Status
+            O workflow **Java CI with Maven** será executado automaticamente.
+            
+            ---
+            *🤖 Criado automaticamente em $(date)*
+          branch: auto-pr-${{ github.run_number }}
+          base: main
+          delete-branch: true
