@@ -99,6 +99,8 @@ Este repositório reúne uma coleção de desafios em **Java**, organizados por 
 ```
 
 ### **Visualização dos Resultados:**
+[![Java CI with Maven](https://github.com/cleosilva/java-desafios/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/cleosilva/java-desafios/actions/workflows/ci.yml)
+[![Simple Auto PR](https://github.com/cleosilva/java-desafios/actions/workflows/auto-pr.yml/badge.svg)](https://github.com/cleosilva/java-desafios/actions/workflows/auto-pr.yml)
 - **GitHub Actions Tab** - Logs detalhados de execução
 - **Commits** - Status visual (✅/❌) em cada commit
 - **Pull Requests** - Validação automática antes do merge
@@ -151,7 +153,7 @@ mvn -version     # Maven 3.6+
 mvn clean compile
 
 # Executar um desafio específico
-mvn exec:java -Pnivel1-desafio1
+mvn exec:java -nivel1-desafio1
 
 # Gerar JAR
 mvn package
