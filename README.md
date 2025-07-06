@@ -19,21 +19,21 @@ Este repositório reúne uma coleção de desafios em **Java**, organizados por 
 
 ### 🟢 Nível 1: Fundamentos
 
-| Código | Desafio                                                   | Caminho                                  |
-|--------|-----------------------------------------------------------|------------------------------------------|
-| 1.1    | Gerenciamento Simples de Produtos                         | [`nivel-1/desafio-1.1`](nivel1/desafio1) |
-| 1.2    | Contador de Instâncias com `static`                       | [`nivel-1/desafio-1.2`](nivel1/desafio2) |
-| 1.3    | Hierarquia de Animais (Herança)                           | [`nivel-1/desafio-1.3`](nivel1/desafio3) |
+| Código | Desafio                                                   | Caminho                   |
+|--------|-----------------------------------------------------------|---------------------------|
+| 1.1    | Gerenciamento Simples de Produtos                         | [`nivel-1/desafio-1.1`](https://github.com/cleosilva/java-desafios/tree/main/src/main/java/org/cleosilva/nivel1/desafio1) |
+| 1.2    | Contador de Instâncias com `static`                       | [`nivel-1/desafio-1.2`](https://github.com/cleosilva/java-desafios/tree/main/src/main/java/org/cleosilva/nivel1/desafio2) |
+| 1.3    | Hierarquia de Animais (Herança)                           | [`nivel-1/desafio-1.3`](https://github.com/cleosilva/java-desafios/tree/main/src/main/java/org/cleosilva/nivel1/desafio3) |
 
 ---
 
 ### 🟡 Nível 2: Abstração e Estrutura
 
-| Código | Desafio                                                   | Caminho                                |
-|--------|-----------------------------------------------------------|----------------------------------------|
-| 2.1    | Sistema de Biblioteca (Herança + Coleções)                | [`nivel-2/desafio-2.1`](nivel-2/desafio-2.1) |
-| 2.2    | Sistema de Pagamento com Interface                        | [`nivel-2/desafio-2.2`](nivel-2/desafio-2.2) |
-| 2.3    | Caixa Genérica (Generics)                                 | [`nivel-2/desafio-2.3`](nivel-2/desafio-2.3) |
+| Código | Desafio                                                   | Caminho                                                                                                                 |
+|--------|-----------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| 2.1    | Sistema de Biblioteca (Herança + Coleções)                | [`nivel-2/desafio-2.1`](https://github.com/cleosilva/java-desafios/tree/main/src/main/java/org/cleosilva/nivel2/desafio1) |
+| 2.2    | Sistema de Pagamento com Interface                        | [`nivel-2/desafio-2.2`](https://github.com/cleosilva/java-desafios/tree/main/src/main/java/org/cleosilva/nivel2/desafio2) |
+| 2.3    | Caixa Genérica (Generics)                                 | [`nivel-2/desafio-2.3`](https://github.com/cleosilva/java-desafios/tree/main/src/main/java/org/cleosilva/nivel2/desafio3)                                                                                         |
 
 ---
 
@@ -59,14 +59,18 @@ Este repositório reúne uma coleção de desafios em **Java**, organizados por 
 
 `````bash
 java-desafios/
+├── .github/
+│      ├──workflows/
+│            └── ci.yml
 ├── README.md
-├── nivel-1/
-│ ├── desafio-1.1/
-│ ├── desafio-1.2/
-│ └── ...
-├── nivel-2/
-├── nivel-3/
-└── nivel-4/
+├── src/
+│    ├──nivel1/
+│         ├── desafio1/
+│         ├── desafio2/
+│         └── ...
+│    ├── nivel-2/
+│    ├── nivel-3/
+│    └── nivel-4/
 `````
 ---
 

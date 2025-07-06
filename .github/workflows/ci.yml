@@ -99,6 +99,10 @@ jobs:
             target/classes/
           retention-days: 5
 
+      - name: Notify on success
+        if: success()
+        run: echo "✅ Build realizado com sucesso!"
+
   code-quality:
     runs-on: ubuntu-latest
     needs: build
