@@ -85,7 +85,7 @@ javac -version
 
 Compile e execute um desafio:
 ````bash
-cd nivel-1/desafio-1.1
+cd nivel1/desafio1
 javac Main.java
 java Main
 `````
