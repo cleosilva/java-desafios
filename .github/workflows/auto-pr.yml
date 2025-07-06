@@ -1,0 +1,43 @@
+name: Simple Auto PR
+
+on:
+  push:
+    branches: [ develop ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'Auto-sync: develop to main'
+          title: '🚀 Release: Develop to Main'
+          body: |
+            ## 📋 Auto-generated Release PR
+            
+            Esta PR foi criada automaticamente para sincronizar `develop` com `main`.
+            
+            ### ✅ Checklist
+            - [ ] Code review realizado
+            - [ ] CI pipeline passou
+            - [ ] Testes validados
+            - [ ] Pronto para produção
+            
+            ### 🔄 CI Status
+            O workflow **Java CI with Maven** será executado automaticamente.
+            
+            ---
+            *🤖 Criado automaticamente em $(date)*
+          branch: auto-pr-${{ github.run_number }}
+          base: main
+          delete-branch: true
