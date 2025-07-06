@@ -55,73 +55,171 @@ Este repositório reúne uma coleção de desafios em **Java**, organizados por 
 
 ---
 
+## 🔧 Tecnologias e Ferramentas
+
+### **Linguagem e Build**
+- **Java 21** (LTS) - Utilizando recursos modernos como Records
+- **Maven** - Gerenciamento de dependências e build
+- **JUnit 5 + AssertJ** - Testes unitários (preparado para implementação)
+
+### **CI/CD Pipeline**
+- **GitHub Actions** - Integração e entrega contínua
+- **Execução automática** em push e pull requests
+- **Artefatos de build** salvos automaticamente
+
+---
+
+## 🚀 CI/CD Implementation
+
+### **Pipeline Status**
+![CI Status](img.png)
+
+### **O que o CI faz automaticamente:**
+
+#### **🔍 Build Pipeline**
+- ✅ **Checkout do código** - Baixa o código do repositório
+- ✅ **Setup Java 21** - Configura o ambiente JDK
+- ✅ **Cache Maven** - Otimiza tempo de build reutilizando dependências
+- ✅ **Validação** - Verifica integridade do projeto Maven
+- ✅ **Compilação** - Compila todos os arquivos `.java`
+- ✅ **Empacotamento** - Gera JARs executáveis
+- ✅ **Execução automática** - Testa execução dos desafios
+- ✅ **Upload de artefatos** - Salva builds para download (5 dias)
+
+#### **🧪 Quality Pipeline**
+- ✅ **Análise de estrutura** - Verifica organização do código
+- ✅ **Verificação de padrões** - Analisa qualidade do código
+- ✅ **Relatórios** - Gera métricas de linhas e arquivos
+
+### **Triggers do CI:**
+```yaml
+# Executa automaticamente em:
+- Push para branches: main, develop
+- Pull requests para: main
+```
+
+### **Visualização dos Resultados:**
+- **GitHub Actions Tab** - Logs detalhados de execução
+- **Commits** - Status visual (✅/❌) em cada commit
+- **Pull Requests** - Validação automática antes do merge
+- **Artifacts** - Download dos JARs compilados
+
+---
+
 ## 📦 Estrutura do Projeto
 
-`````bash
+```bash
 java-desafios/
 ├── .github/
-│      ├──workflows/
-│            └── ci.yml
+│   └── workflows/
+│       └── ci.yml                 # 🔄 Pipeline de CI/CD
 ├── README.md
+├── pom.xml                        # 📦 Configuração Maven
 ├── src/
-│    ├──nivel1/
-│         ├── desafio1/
-│         ├── desafio2/
-│         └── ...
-│    ├── nivel-2/
-│    ├── nivel-3/
-│    └── nivel-4/
-`````
+│   └── main/
+│       └── java/
+│           └── org/
+│               └── cleosilva/
+│                   ├── nivel1/
+│                   │   ├── desafio1/
+│                   │   ├── desafio2/
+│                   │   └── desafio3/
+│                   ├── nivel2/
+│                   │   ├── desafio1/
+│                   │   ├── desafio2/
+│                   │   └── desafio3/
+│                   ├── nivel3/
+│                   └── nivel4/
+└── target/                        # 🎯 Arquivos compilados (gerado automaticamente)
+```
+
 ---
 
 ## 🧪 Como Executar
 
-Certifique-se de ter o Java instalado:
-
+### **Pré-requisitos:**
 ```bash
-java -version
-javac -version
-````
+java -version    # Java 21+
+mvn -version     # Maven 3.6+
+```
 
-Compile e execute um desafio:
-````bash
-cd nivel-1/desafio-1.1
-javac Main.java
-java Main
-`````
-### 📋 Critérios de Avaliação Pessoal
+### **Execução Local:**
 
-✅ Código (40%): organização, clareza, uso correto dos recursos
+#### **Via Maven:**
+```bash
+# Compilar o projeto
+mvn clean compile
 
-🧱 Arquitetura (30%): separação de responsabilidades, coesão e desacoplamento
+# Executar um desafio específico
+mvn exec:java -Pnivel1-desafio1
 
-📘 Boas Práticas (20%): nomenclatura, exceções, legibilidade
+# Gerar JAR
+mvn package
 
-✨ Criatividade (10%): soluções elegantes e melhorias extras
+# Executar testes (quando implementados)
+mvn test
+```
 
+#### **Via Java direto:**
+```bash
+# Compilar e executar
+mvn clean compile
+java -cp target/classes org.cleosilva.nivel1.desafio1.Main
+```
 
-### 🚀 Dicas de Progressão
-Comece onde estiver confortável e vá subindo o nível gradualmente.
+### **Execução via GitHub Actions:**
+O CI executa automaticamente todos os desafios a cada push! 🚀
 
-Faça revisões do seu próprio código após 1 ou 2 dias.
+### **Download dos Artefatos:**
+1. Vá para a aba **Actions** do repositório
+2. Clique no último build bem-sucedido
+3. Baixe os **artifacts** com os JARs compilados
 
-Refatore sempre que puder, é assim que se aprende.
+---
 
-Teste edge cases (valores nulos, limites, erros esperados).
+## 📋 Critérios de Avaliação Pessoal
 
-Documente suas decisões técnicas.
+✅ **Código (40%)**: organização, clareza, uso correto dos recursos
 
-### 💡 Próximos Passos
-🧱 Design Patterns
+🧱 **Arquitetura (30%)**: separação de responsabilidades, coesão e desacoplamento
 
-☁️ Spring Framework e Web
+📘 **Boas Práticas (20%)**: nomenclatura, exceções, legibilidade
 
-🧵 Programação Reativa
+✨ **Criatividade (10%)**: soluções elegantes e melhorias extras
 
-🐳 Containers, APIs REST e microsserviços
+---
 
+## 🚀 Dicas de Progressão
 
-### ✍️ Sobre
+- Comece onde estiver confortável e vá subindo o nível gradualmente
+- Faça revisões do seu próprio código após 1 ou 2 dias
+- Refatore sempre que puder, é assim que se aprende
+- Teste edge cases (valores nulos, limites, erros esperados)
+- Documente suas decisões técnicas
+- **Observe o CI**: Use os logs para identificar problemas rapidamente
+
+---
+
+## 💡 Próximos Passos
+
+### **Desenvolvimento:**
+- 🧱 Design Patterns
+- ☁️ Spring Framework e Web
+- 🧵 Programação Reativa
+- 🐳 Containers, APIs REST e microsserviços
+
+### **DevOps:**
+- 🔧 Testes automatizados (JUnit 5 + AssertJ)
+- 🏗️ CD Pipeline (deployment automático)
+- 🐋 Containerização com Docker
+- 📊 Monitoramento e métricas
+
+---
+
+## ✍️ Sobre
+
 Todos os desafios foram pensados para simular cenários reais, focar em boas práticas e desenvolver uma base sólida que permita crescer com segurança e autonomia.
+
+**Novo diferencial:** Implementação de CI/CD desde o início, simulando um ambiente profissional real onde cada mudança é validada automaticamente!
 
 Sinta-se livre para clonar, testar, dar sugestões ou feedbacks!
