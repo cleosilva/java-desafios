@@ -39,19 +39,19 @@ Este repositório reúne uma coleção de desafios em **Java**, organizados por 
 
 ### 🟠 Nível 3: Robustez e Interação
 
-| Código | Desafio                                                   | Caminho                                |
-|--------|-----------------------------------------------------------|----------------------------------------|
-| 3.1    | Validação de Entrada com Exceções                         | [`nivel-3/desafio-3.1`](nivel-3/desafio-3.1) |
-| 3.2    | Logger com Escrita em Arquivo                             | [`nivel-3/desafio-3.2`](nivel-3/desafio-3.2) |
+| Código | Desafio                                                   | Caminho                                                                                                                   |
+|--------|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| 3.1    | Validação de Entrada com Exceções                         | [`nivel-3/desafio-3.1`](https://github.com/cleosilva/java-desafios/tree/main/src/main/java/org/cleosilva/nivel3/desafio1) |
+| 3.2    | Logger com Escrita em Arquivo                             | [`nivel-3/desafio-3.2`](https://github.com/cleosilva/java-desafios/tree/main/src/main/java/org/cleosilva/nivel3/desafio2) |
 
 ---
 
 ### 🔴 Nível 4: Integração e Arquitetura
 
-| Código | Desafio                                                   | Caminho                                |
-|--------|-----------------------------------------------------------|----------------------------------------|
-| 4.1    | Sistema de Pedidos Completo                               | [`nivel-4/desafio-4.1`](nivel-4/desafio-4.1) |
-| 4.2    | Serviços com Logger e Configurações                       | [`nivel-4/desafio-4.2`](nivel-4/desafio-4.2) |
+| Código | Desafio                                                   | Caminho                                                                                                                   |
+|--------|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| 4.1    | Sistema de Pedidos Completo                               | [`nivel-4/desafio-4.1`](https://github.com/cleosilva/java-desafios/tree/main/src/main/java/org/cleosilva/nivel4/desafio1) |
+| 4.2    | Serviços com Logger e Configurações                       | [`nivel-4/desafio-4.2`](https://github.com/cleosilva/java-desafios/tree/main/src/main/java/org/cleosilva/nivel4/desafio2) |
 
 ---
 

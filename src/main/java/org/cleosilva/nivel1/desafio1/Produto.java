@@ -20,6 +20,10 @@ public record Produto(String nome, double preco, int quantidadeEmEstoque, String
     public Produto(String nome, double preco, int quantidadeEmEstoque) {
         this(nome, preco, quantidadeEmEstoque, UUID.randomUUID().toString());
     }
+    // Método para criar uma nova instância de Produto com estoque atualizado (Records são imutáveis)
+    public Produto comNovaQuantidade(int novaQuantidade) {
+        return new Produto(this.nome, this.preco, novaQuantidade, this.codigoUnico);
+    }
 
     @Override
     public String toString() {
