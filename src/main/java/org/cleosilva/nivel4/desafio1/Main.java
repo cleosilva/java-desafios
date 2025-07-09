@@ -1,4 +1,4 @@
-package org.cleosilva.nivel4;
+package org.cleosilva.nivel4.desafio1;
 
 import org.cleosilva.nivel1.desafio1.Produto;
 
